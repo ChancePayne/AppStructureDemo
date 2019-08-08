@@ -1,0 +1,15 @@
+package com.lambdaschool.appstructuredemo.util
+
+import java.text.NumberFormat
+
+fun formatCustomerName(first: String, last: String): String {
+    return "$last, $first"
+}
+
+fun formatCurrency(price: Double): String {
+    return NumberFormat.getCurrencyInstance().format(price)
+}
+
+fun formatPercent(discount: Double): String {
+    return "${NumberFormat.getPercentInstance().format(discount)} discount"
+}
