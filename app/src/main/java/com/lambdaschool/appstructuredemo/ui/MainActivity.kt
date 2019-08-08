@@ -2,8 +2,8 @@ package com.lambdaschool.appstructuredemo.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-//import com.lambdaschool.appstructuredemo.util.
 import com.lambdaschool.appstructuredemo.R
+import com.lambdaschool.appstructuredemo.application.StructureApplication
 import com.lambdaschool.appstructuredemo.model.Order
 import com.lambdaschool.appstructuredemo.util.DateUtils
 import com.lambdaschool.appstructuredemo.util.TextUtils
@@ -17,14 +17,14 @@ class MainActivity : AppCompatActivity() {
 
         title = "Order Details"
 
-        displayOrderDetails(Order())
+        displayOrderDetails((application as StructureApplication).appOrder)
     }
 
     private fun displayOrderDetails(order: Order) {
         discount_view.text = TextUtils.formatPercent(order.discount)
         orderDate_view.text = DateUtils.formatDate(order.orderDate)
         price_view.text = TextUtils.formatCurrency(order.price)
-        tax_view.text = TextUtils.formatCurrency(order.price)
+        tax_view.text = TextUtils.formatCurrency(order.tax)
         customer_first_view.text = TextUtils.formatCustomerName(order.customerFirstName, order.customerLastName)
     }
 }
